@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "431564450408",
+    "firebase_url": "https://otospec-9f98c-default-rtdb.firebaseio.com",
+    "project_id": "otospec-9f98c",
+    "storage_bucket": "otospec-9f98c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:431564450408:android:3506e4896fbdc4a48fe9dd",
+        "android_client_info": {
+          "package_name": "com.example.otospec"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByI5vaD8z01-uyjXIbIkd_mLENM4cVgeY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

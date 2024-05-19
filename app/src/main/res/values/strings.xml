@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Otospec</string>
+    <string name="night_light">Night Light</string>
+    <string name="jarak_1">1</string>
+    <string name="jarak_2">3</string>
+    <string name="jarak_3">4</string>
+    <string name="jarak_4">8</string>
+    <string name="start">START</string>
+    <string name="warning_start">Pilih jarak terlebih dahulu</string>
+    <string name="delete_data">Data dihapus</string>
+    <string name="error_message">Error data fetching</string>
+    <string name="reset">RESET</string>
+    <string name="back">BACK</string>
+    <string name="exit">EXIT</string>
+    <string name="stop">STOP</string>
+    <string name="fod">FOD</string>
+    <string name="current_location">Current Location</string>
+</resources>

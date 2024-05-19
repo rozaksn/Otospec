@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main.MainActivity">
+
+    <ImageView
+        android:id="@+id/ivBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/polosan_dashboard"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/swMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:gravity="center"
+        android:text="@string/night_light"
+        android:textColor="@color/white"
+        app:thumbTint="@color/white"
+        app:trackTint="@color/pastel_orange"
+        style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+        android:textSize="30sp"
+        android:thumbTint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.692"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/swMode"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/jarak_1"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:buttonTint="@color/white"/>
+
+        <RadioButton
+            android:id="@+id/rb2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/jarak_2"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:buttonTint="@color/white"/>
+        <RadioButton
+            android:id="@+id/rb3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/jarak_3"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:buttonTint="@color/white"/>
+        <RadioButton
+            android:id="@+id/rb4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/jarak_4"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:buttonTint="@color/white" />
+    </RadioGroup>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.622"
+        app:layout_constraintStart_toStartOf="parent"
+        app:cornerRadius="30dp"
+        android:text="@string/start"
+        android:backgroundTint="@color/pastel_yellow"
+        android:textColor="@color/navy_blue"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+         android:gravity="center"
+        app:strokeWidth="2dp"
+        app:strokeColor="@color/white"/>
+
+    <fragment
+        android:id="@+id/gMap"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="350dp"
+        android:layout_height="210dp"
+        android:layout_marginBottom="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/stop"
+        android:backgroundTint="@color/pastel_orange"
+        android:layout_marginBottom="50dp"
+        android:layout_marginStart="30dp"
+        app:strokeWidth="3dp"
+        app:strokeColor="@color/white"
+        android:textStyle="bold"
+        app:cornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="@color/pastel_yellow"
+        android:text="@string/reset"
+        android:textColor="@color/navy_blue"
+        android:textStyle="bold"
+        app:cornerRadius="30dp"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btFod"
+        app:layout_constraintStart_toEndOf="@+id/btStop"
+        app:strokeColor="@color/white"
+        app:strokeWidth="3dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btFod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/red"
+        app:strokeWidth="3dp"
+        app:strokeColor="@color/white"
+        android:text="@string/fod"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_marginBottom="50dp"
+        android:layout_marginEnd="30dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

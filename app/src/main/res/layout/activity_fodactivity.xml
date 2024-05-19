@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FOD.FODActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/polosan_fod" />
+
+    <TextView
+        android:id="@+id/tvLink1"
+        android:layout_width="335dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="336dp"
+        android:textColor="@color/navy_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        android:textSize="16sp"
+        android:textAlignment="center"
+        tools:text="https://www.google.com/maps?q=0.0000000000,0.0000000000" />
+
+    <TextView
+        android:id="@+id/tvLink2"
+        android:layout_width="335dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/navy_blue"
+        android:textSize="16sp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/tvLink1"
+        app:layout_constraintStart_toStartOf="@+id/tvLink1"
+        app:layout_constraintTop_toBottomOf="@+id/tvLink1"
+        tools:text="https://www.google.com/maps?q=0.0000000000,0.0000000000" />
+
+    <TextView
+        android:id="@+id/tvLink3"
+        android:layout_width="335dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:textSize="16sp"
+        android:textColor="@color/navy_blue"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/tvLink2"
+        app:layout_constraintStart_toStartOf="@+id/tvLink2"
+        app:layout_constraintTop_toBottomOf="@+id/tvLink2"
+        tools:text="https://www.google.com/maps?q=0.0000000000,0.0000000000" />
+
+    <TextView
+        android:id="@+id/tvLink4"
+        android:layout_width="335dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:textSize="16sp"
+        android:textColor="@color/navy_blue"
+        android:textAlignment="center"
+        tools:text="https://www.google.com/maps?q=0.0000000000,0.0000000000"
+        app:layout_constraintEnd_toEndOf="@+id/tvLink3"
+        app:layout_constraintStart_toStartOf="@+id/tvLink3"
+        app:layout_constraintTop_toBottomOf="@+id/tvLink3" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/pastel_orange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="50dp"
+        android:layout_marginStart="30dp"
+        android:text="@string/back"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:strokeColor="@color/white"
+        app:cornerRadius="30dp"
+        app:strokeWidth="3dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btExit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/red"
+        android:layout_marginBottom="50dp"
+        android:layout_marginEnd="30dp"
+        android:text="@string/exit"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:strokeWidth="3dp"
+        app:strokeColor="@color/white"
+        app:cornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
