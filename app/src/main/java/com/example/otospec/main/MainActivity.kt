@@ -55,11 +55,18 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         sendData()
         reset()
         checkLocationServices()
+
+        //hideMapFragment()
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMaps=googleMap
         fetchLocationUpdate()
+    }
+
+    private fun hideMapFragment() {
+        val mapFragment = supportFragmentManager.findFragmentById(R.id.gMap)
+        mapFragment?.view?.visibility = View.GONE
     }
 
     private fun setupListener(){
@@ -76,19 +83,20 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun sendData(){
         val buttonRef= database.getReference("KONTROL/RUNNING")
         val switchRef = database.getReference("KONTROL/LED")
+        val radioRef = database.getReference("KONTROL/RangeDistance")
         binding.btStart.setOnClickListener {
-            // Mendapatkan ID RadioButton yang dipilih
-            val selectedRadioButtonId = binding.radioGroup.checkedRadioButtonId
+            buttonRef.setValue(1)
+        }
+
+        binding.radioGroup.setOnCheckedChangeListener { _, selectedRadioButtonId ->
             // Jika ada RadioButton yang dipilih
-            if (selectedRadioButtonId != -1){
+            if (selectedRadioButtonId != -1) {
                 // Mendapatkan referensi RadioButton yang dipilih
                 val selectedRadioButton = findViewById<RadioButton>(selectedRadioButtonId)
                 // Mendapatkan teks dari RadioButton yang dipilih
                 val selectedText = selectedRadioButton.text.toString().toInt()
-                buttonRef.setValue(selectedText)
+                radioRef.setValue(selectedText)
                 Log.d("TAG", selectedText.toString())
-            }else{
-                Toast.makeText(this@MainActivity, R.string.warning_start, Toast.LENGTH_SHORT).show()
             }
         }
         binding.swMode.setOnCheckedChangeListener { _, isChecked ->
