@@ -2,9 +2,9 @@
     <string name="app_name">Otospec</string>
     <string name="night_light">Night Light</string>
     <string name="jarak_1">1</string>
-    <string name="jarak_2">3</string>
-    <string name="jarak_3">4</string>
-    <string name="jarak_4">8</string>
+    <string name="jarak_2">2</string>
+    <string name="jarak_3">3</string>
+    <string name="jarak_4">4</string>
     <string name="start">START</string>
     <string name="warning_start">Pilih jarak terlebih dahulu</string>
     <string name="delete_data">Data dihapus</string>
