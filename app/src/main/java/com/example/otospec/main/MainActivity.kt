@@ -3,6 +3,8 @@ package com.example.otospec.main
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.location.LocationManager
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +23,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.example.otospec.databinding.*
 import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.CircleOptions
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
@@ -194,9 +197,20 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private fun updateLocation(lat:Double,lng:Double){
         val latlng = LatLng(lat,lng)
-        mMaps.clear()
-        mMaps.addMarker(MarkerOptions().position(latlng).title(getString(R.string.current_location)).snippet(latlng.toString()))
-        mMaps.moveCamera(CameraUpdateFactory.newLatLngZoom(latlng, 15f))
+        val bitmap = BitmapFactory.decodeResource(resources,R.drawable.logo_png)
+        val scaledBitmap = Bitmap.createScaledBitmap(bitmap,100,100,true)
+        if (bitmap != null) {
+            mMaps.clear()
+            mMaps.addMarker(
+                MarkerOptions().position(latlng).title(getString(R.string.current_location))
+                    .snippet(latlng.toString())
+                    .icon(BitmapDescriptorFactory.fromBitmap(scaledBitmap))
+            )
+
+            mMaps.moveCamera(CameraUpdateFactory.newLatLngZoom(latlng, 15f))
+        }else {
+            Log.e("Error", "Bitmap is null. Please check the resource ID.")
+        }
     }
 
     private fun checkLocationServices() {
