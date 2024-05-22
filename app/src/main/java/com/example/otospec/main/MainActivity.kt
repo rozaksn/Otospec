@@ -3,6 +3,7 @@ package com.example.otospec.main
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
@@ -99,35 +100,46 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
                     binding.rb1.id->{
                         // RadioButton 1 dipilih, kirim nilai 1 ke Firebase
                         radioRef.setValue(1)
-                        Log.d("TAG", "RadioButton 1 selected: 1")
+                        Log.d("TAG", getString(R.string.rb1_msg))
                     }
 
                     binding.rb2.id->{
-                        // RadioButton 1 dipilih, kirim nilai 1 ke Firebase
+                        // RadioButton 1 dipilih, kirim nilai 3 ke Firebase
                         radioRef.setValue(2)
-                        Log.d("TAG", "RadioButton 2 selected: 3")
+                        Log.d("TAG", getString(R.string.rb2_msg))
                     }
 
                     binding.rb3.id->{
-                        // RadioButton 1 dipilih, kirim nilai 1 ke Firebase
+                        // RadioButton 1 dipilih, kirim nilai 4 ke Firebase
                         radioRef.setValue(3)
-                        Log.d("TAG", "RadioButton 1 selected: 4")
+                        Log.d("TAG", getString(R.string.rb3_msg))
                     }
 
                     binding.rb4.id->{
-                        // RadioButton 1 dipilih, kirim nilai 1 ke Firebase
+                        // RadioButton 1 dipilih, kirim nilai 8 ke Firebase
                         radioRef.setValue(4)
-                        Log.d("TAG", "RadioButton 1 selected: 8")
+                        Log.d("TAG", getString(R.string.rb4_msg))
                     }
 
 
                 }
             }
         }
+
         binding.swMode.setOnCheckedChangeListener { _, isChecked ->
             val value = if (isChecked) 1 else 0
             switchRef.setValue(value)
+            if (isChecked){
+                //Switch On
+                binding.swMode.thumbTintList = ColorStateList.valueOf(Color.WHITE)
+                binding.swMode.trackTintList = ColorStateList.valueOf(getColor(R.color.pastel_orange))
+            }else{
+                //Switch Off
+                binding.swMode.thumbTintList = ColorStateList.valueOf(Color.WHITE)
+                binding.swMode.trackTintList = ColorStateList.valueOf(getColor(R.color.blue))
+            }
         }
+
         switchRef.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 val value = snapshot.getValue(Int::class.java) ?: 0
