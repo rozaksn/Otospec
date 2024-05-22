@@ -15,4 +15,8 @@
     <string name="stop">STOP</string>
     <string name="fod">FOD</string>
     <string name="current_location">Current Location</string>
+    <string name="rb1_msg">RadioButton 1 selected: 1</string>
+    <string name="rb2_msg">RadioButton 2 selected: 3</string>
+    <string name="rb3_msg">RadioButton 3 selected: 4</string>
+    <string name="rb4_msg">RadioButton 4 selected: 8</string>
 </resources>
