@@ -56,7 +56,8 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         reset()
         checkLocationServices()
 
-        //hideMapFragment()
+
+
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -64,19 +65,18 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         fetchLocationUpdate()
     }
 
-    private fun hideMapFragment() {
-        val mapFragment = supportFragmentManager.findFragmentById(R.id.gMap)
-        mapFragment?.view?.visibility = View.GONE
-    }
+
 
     private fun setupListener(){
         val ref = database.getReference("KONTROL/RUNNING")
+        val distanceRef = database.getReference("KONTROL/RangeDistance")
         binding.btFod.setOnClickListener {
             startActivity(Intent(this,FODActivity::class.java))
         }
         binding.btStop.setOnClickListener {
             binding.radioGroup.clearCheck()
             ref.setValue(0)
+            distanceRef.setValue(0)
         }
 
     }
@@ -91,12 +91,34 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         binding.radioGroup.setOnCheckedChangeListener { _, selectedRadioButtonId ->
             // Jika ada RadioButton yang dipilih
             if (selectedRadioButtonId != -1) {
-                // Mendapatkan referensi RadioButton yang dipilih
-                val selectedRadioButton = findViewById<RadioButton>(selectedRadioButtonId)
-                // Mendapatkan teks dari RadioButton yang dipilih
-                val selectedText = selectedRadioButton.text.toString().toInt()
-                radioRef.setValue(selectedText)
-                Log.d("TAG", selectedText.toString())
+                when(selectedRadioButtonId) {
+
+                    binding.rb1.id->{
+                        // RadioButton 1 dipilih, kirim nilai 1 ke Firebase
+                        radioRef.setValue(1)
+                        Log.d("TAG", "RadioButton 1 selected: 1")
+                    }
+
+                    binding.rb2.id->{
+                        // RadioButton 1 dipilih, kirim nilai 1 ke Firebase
+                        radioRef.setValue(2)
+                        Log.d("TAG", "RadioButton 2 selected: 3")
+                    }
+
+                    binding.rb3.id->{
+                        // RadioButton 1 dipilih, kirim nilai 1 ke Firebase
+                        radioRef.setValue(3)
+                        Log.d("TAG", "RadioButton 1 selected: 4")
+                    }
+
+                    binding.rb4.id->{
+                        // RadioButton 1 dipilih, kirim nilai 1 ke Firebase
+                        radioRef.setValue(4)
+                        Log.d("TAG", "RadioButton 1 selected: 8")
+                    }
+
+
+                }
             }
         }
         binding.swMode.setOnCheckedChangeListener { _, isChecked ->
@@ -130,8 +152,6 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
                 if(value==1){
                     binding.btReset.setBackgroundColor(getColor(R.color.navy_blue))
                     binding.btReset.setTextColor(getColor(R.color.pastel_yellow))
-
-
 
                     //Menunda pengubahan nilai menjadi 0 selama 5 detik
                     Handler(Looper.getMainLooper()).postDelayed({
