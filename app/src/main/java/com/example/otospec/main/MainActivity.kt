@@ -60,8 +60,6 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         reset()
         checkLocationServices()
 
-
-
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -196,6 +194,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
                     val longitude = locationSnapshot.child("lng").getValue().toString().toDouble()
                     if (latitude != null && longitude != null) {
                         updateLocation(latitude,longitude)
+                        Log.d("Location","Lat:$latitude, Lng:$longitude")
                     }
                 }
             }
