@@ -106,7 +106,6 @@
         android:layout_height="210dp"
         android:layout_marginBottom="100dp"
         app:cardCornerRadius="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/btReset"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
@@ -127,32 +126,14 @@
         android:id="@+id/btStop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/stop"
+        android:layout_marginStart="80dp"
+        android:layout_marginBottom="50dp"
         android:backgroundTint="@color/pastel_orange"
-        android:layout_marginBottom="50dp"
-        android:layout_marginStart="30dp"
-        app:strokeWidth="3dp"
-        app:strokeColor="@color/white"
+        android:text="@string/stop"
         android:textStyle="bold"
         app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btReset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginBottom="50dp"
-        android:backgroundTint="@color/pastel_yellow"
-        android:text="@string/reset"
-        android:textColor="@color/navy_blue"
-        android:textStyle="bold"
-        app:cornerRadius="30dp"
-        android:layout_marginEnd="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btFod"
-        app:layout_constraintStart_toEndOf="@+id/btStop"
+        app:layout_constraintStart_toStartOf="parent"
         app:strokeColor="@color/white"
         app:strokeWidth="3dp" />
 
@@ -169,6 +150,6 @@
         android:textStyle="bold"
         android:textColor="@color/white"
         android:layout_marginBottom="50dp"
-        android:layout_marginEnd="30dp"/>
+        android:layout_marginEnd="80dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

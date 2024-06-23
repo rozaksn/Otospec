@@ -57,7 +57,6 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
         setupListener()
         sendData()
-        reset()
         checkLocationServices()
 
     }
@@ -152,40 +151,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
     }
 
-    private fun reset(){
-        val buttonRef=database.getReference("KONTROL/RESET")
-        binding.btReset.setOnClickListener {
-
-                buttonRef.setValue(1)
-
-        }
-        buttonRef.addValueEventListener(object :ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val value = snapshot.getValue(Int::class.java) ?: 0
-                if(value==1){
-                    binding.btReset.setBackgroundColor(getColor(R.color.navy_blue))
-                    binding.btReset.setTextColor(getColor(R.color.pastel_yellow))
-
-                    //Menunda pengubahan nilai menjadi 0 selama 5 detik
-                    Handler(Looper.getMainLooper()).postDelayed({
-                        buttonRef.setValue(0)
-
-                    },5000)//delay 5 detik
-                }else{
-                    binding.btReset.setBackgroundColor(getColor(R.color.pastel_yellow))
-                    binding.btReset.setTextColor(getColor(R.color.navy_blue))
-                    
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                Log.e("Error",R.string.error_message.toString())
-            }
-
-        })
-    }
-
-    private fun fetchLocationUpdate(){
+        private fun fetchLocationUpdate(){
         val locationRef = database.getReference("Location")
         locationRef.addValueEventListener(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
